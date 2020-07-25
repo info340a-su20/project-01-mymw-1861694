@@ -1,0 +1,10 @@
+/* This is pseudocode for a CSS rule */
+selector {
+    property: value;
+    property: value;
+ }
+ 
+ /* This would be another, second rule */
+ selector {
+    property: value;
+ }
