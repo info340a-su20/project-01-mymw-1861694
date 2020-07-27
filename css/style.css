@@ -1,10 +1,55 @@
-/* This is pseudocode for a CSS rule */
-selector {
-    property: value;
-    property: value;
+ /* Michelle Wong Yu Miin
+   INFO 340
+   26 July 2020 
+   Project 1*/
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-image: url("dots.png");
+    font-size: 16px;
  }
  
- /* This would be another, second rule */
- selector {
-    property: value;
+ h1 {
+   text-align: center;
+   color: rgba(255, 0, 0, 0.925);
+   font-weight: bold;
  }
+
+ h2 {
+   text-align: center;
+   color: rgba(255, 0, 0, 0.925);
+   margin-top: 50px;
+   font-weight: bold;
+ }
+
+ h3 {
+   margin-left: 200px;
+   color: rgba(255, 0, 0, 0.925);
+   margin-top: 25px;
+ }
+
+ h4 {
+   margin-left: 200px;
+ }
+
+p {
+   text-align: justify;
+   margin-right: 200px;
+   margin-left: 200px;
+   line-height: 1.5;
+}
+
+ol {
+   margin-left: 200px;
+}
+
+li {
+   text-align: justify;
+}
+
+ul {
+   margin-left: 200px;
+}
+
+.subheader {
+   margin-top: 0px;
+}
