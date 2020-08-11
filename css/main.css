@@ -1,0 +1,79 @@
+* { 
+    box-sizing: border-box; 
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto", sans-serif;
+    background-image: url('../img/plant.jpg');
+    margin: 5rem;
+}
+
+h1, h2 {
+    color: rgb(33, 162, 194);
+}
+
+nav {
+    background-color: whitesmoke;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(33, 162, 194);
+    padding: .8rem;
+}
+
+nav a:hover, nav a:active, nav a:focus {
+    border-bottom: .3rem solid rgb(20, 85, 122);
+    color: rgb(20, 85, 122);
+}
+
+li {
+    display: inline;
+    margin-right: 1rem;
+    font-size: 18px;
+}
+
+
+ul {
+    margin: 0;
+    padding: 0;
+    padding-top: .5rem;
+    display: inline-block;
+}
+
+.profile {
+    position: float;
+    float: right;
+}
+
+header {
+    background-color: whitesmoke;
+    border-radius: 10px;
+    position: fixed;
+    right: 1rem;
+    top: 7rem;
+    font-size: 14px;
+    padding: 1rem;
+}
+
+.allOptions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: 7rem;
+}
+
+.oneOption {
+    border-collapse: collapse;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    margin: 5rem;
+    padding: 1.5rem;
+}
