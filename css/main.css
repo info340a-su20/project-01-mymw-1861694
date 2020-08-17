@@ -22,6 +22,14 @@ h1 {
     display: inline-block;
 }
 
+.title {
+    font-weight: bold;
+    font-size: 18px;
+    color: rgb(33, 162, 194);
+    display: inline;
+    margin-right: 1rem;
+}
+
 nav {
     background-color: whitesmoke;
     position: fixed;
@@ -31,60 +39,57 @@ nav {
     padding: 1.5rem;
 }
 
-nav a {
-    text-decoration: none;
-    color: rgb(33, 162, 194);
-    padding: .8rem;
-}
-
-nav a:hover, nav a:active, nav a:focus, .alex, .faq {
-    border-bottom: .3rem solid rgb(20, 85, 122);
-    color: rgb(20, 85, 122);
-}
-
-nav h1, li {
-    display: inline;
-    margin-right: 1rem;
-}
-
-li {
-    font-size: 18px;
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-    padding-top: .5rem;
-    display: inline-block;
+.navBar {
+    display:none;
 }
 
 .profile {
-    position: float;
-    float: right;
+    display: none;
 }
 
 .child h2{
     background-color: whitesmoke;
     border-radius: 10px;
-    position: fixed;
-    right: 1rem;
     top: 7rem;
     font-size: 14px;
     padding: 1rem;
+    text-align: center;
+}
+
+img {
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.new {
+    display: flex;
+    flex-direction: column;
+}
+
+.new input {
+    padding: 0.5em;
+    margin: 0.5rem;
 }
 
 .allOptions {
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
-    margin-right: 9rem;
 }
 
-.oneOption, .oneQuestion {
+.oneOption {
     border-collapse: collapse;
     background-color: whitesmoke;
     border-radius: 10px;
     margin: 2.5rem;
+    padding: 1.5rem;
+}
+
+.oneQuestion {
+    border-collapse: collapse;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    margin: 1rem;
     padding: 1.5rem;
 }
 
@@ -93,3 +98,79 @@ ul {
     flex-direction: column;
 }
 
+.heading {
+    margin-top: 7rem;
+    font-size: 12px;
+}
+
+/*Current books*/
+.current {
+
+}
+
+/*Previous books*/
+.previous {
+
+}
+
+/*Medium screens, more than 768px*/
+@media (min-width: 768px) {
+    .profile {
+        position: float;
+        float: right;
+    }
+
+    .navBar {
+        display: block;
+    }
+    
+    nav a {
+        text-decoration: none;
+        color: rgb(33, 162, 194);
+        padding: .8rem;
+    }
+    
+    nav a:hover, nav a:active, nav a:focus, .alex, .faq {
+        border-bottom: .3rem solid rgb(20, 85, 122);
+        color: rgb(20, 85, 122);
+    }
+    
+    nav h1, li {
+        display: inline;
+        margin-right: 1rem;
+    }
+    
+    li {
+        font-size: 18px;
+    }
+    
+    ul {
+        margin: 0;
+        padding: 0;
+        padding-top: .5rem;
+        display: inline-block;
+    }
+
+    .child h2{
+        background-color: whitesmoke;
+        border-radius: 10px;
+        position: fixed;
+        right: 1rem;
+        top: 7rem;
+        font-size: 14px;
+        padding: 1rem;
+    }
+
+    .allOptions {
+        margin-right: 9rem;
+    }
+}
+
+/*Large screens, more than 992px*/
+@media (min-width: 992px) {
+}
+
+/*Extra-large screens, more than 992px*/
+@media (min-width: 1200px) {
+    
+}

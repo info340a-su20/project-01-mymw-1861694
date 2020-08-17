@@ -4,16 +4,22 @@
         <meta charset="UTF-8">  
         <title>Lectio Alex</title>
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+        <!--Icons-->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     </head>
     <body>
         <nav>
+            <p class="title">Lectio</p>
+            <div id="hamburger-menu"><a href="#"><i class="fa fa-bars" aria-label="menu"></i></a></div>
             <ul>
                 <!--Add in hyperlinks to the other pages-->
-                <li><a href="home.html">Lectio</a></li>
-                <li class="alex"><a href="alex.html">Alex</a></li>
-                <li><a href="jamie.html">Jamie</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="friends.html">Friends</a></li>
+                <div class="navBar">
+                    <li class="alex"><a href="alex.html">Alex</a></li>
+                    <li><a href="jamie.html">Jamie</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="friends.html">Friends</a></li>
+                </div>
             </ul>
             <div class="profile">
                 <!--<button><i  aria-label="Search" class="fas fa-search fa-flip-horizontal"></i></button>-->
@@ -34,18 +40,35 @@
                     <div class="oneOption">
                         <h2>Add a Book</h2>
                         <p>Put in details about a new book you are reading:</p>
-                        <input type="text" placeholder="Title of Book">
-                        <input type="text" placeholder="Author">
-                        <input type="text" placeholder="Number of Pages">
+                        <div class="new">
+                            <input type="text" placeholder="Title of Book">
+                            <input type="text" placeholder="Author">
+                            <input type="text" placeholder="Number of Pages">
+                            <button>Add Book</button>
+                        </div>
                     </div>
                     <div class="oneOption">
                         <h2>Current Books</h2>
                         <p>Here are the books you are currently reading. Update your progress!</p>
-                        <h3>Little Prince</h3>
+                        <section class="current"> 
+                            <img src="img/littleprince.jpg">
+                            <h3>Little Prince</h3>
+                            <button>Edit</button>
+                            <p>40/128</p>
+                            <button>Read 10 pages</button>
+                            <button>Complete</button>
+                        </section>
                     </div>
                     <div class="oneOption">
                         <h2>Previous Books</h2>
                         <p>Here are books you have read. Re-read them or edit their details.</p>
+                        <section class="previous">
+                            <img src="img/hungrycaterpillar.jpg">
+                            <h3>The Very Hungry Caterpillar</h3>
+                            <p>22</p>
+                            <button>Re-read</button>
+                            <button>Edit</button>
+                        </section>
                     </div>
                     <div class="oneOption">
                         <h2>History</h2>
