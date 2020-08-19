@@ -94,21 +94,12 @@ img {
     font-size: 12px;
 }
 
-/*Current books*/
-.current {
 
-}
-
-/*Previous books*/
-.previous {
-
-}
 
 /*Medium screens, more than 768px*/
 @media (min-width: 768px) {
     .profile {
-        position: float;
-        float: right;
+        margin: 1rem;
     }
 
     .navBar {
