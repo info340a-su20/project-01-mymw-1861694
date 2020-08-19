@@ -47,15 +47,6 @@ nav {
     display: none;
 }
 
-.child h2{
-    background-color: whitesmoke;
-    border-radius: 10px;
-    top: 7rem;
-    font-size: 14px;
-    padding: 1rem;
-    text-align: center;
-}
-
 img {
     max-width: 150px;
     max-height: 150px;
@@ -74,7 +65,7 @@ img {
 .allOptions {
     display: flex;
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: center;
 }
 
 .oneOption {
@@ -151,26 +142,7 @@ img {
         display: inline-block;
     }
 
-    .child h2{
-        background-color: whitesmoke;
-        border-radius: 10px;
-        position: fixed;
-        right: 1rem;
-        top: 7rem;
-        font-size: 14px;
-        padding: 1rem;
+    #hamburger-menu {
+        display: none;
     }
-
-    .allOptions {
-        margin-right: 9rem;
-    }
-}
-
-/*Large screens, more than 992px*/
-@media (min-width: 992px) {
-}
-
-/*Extra-large screens, more than 992px*/
-@media (min-width: 1200px) {
-    
 }
