@@ -22,6 +22,15 @@ h1 {
     display: inline-block;
 }
 
+button {
+    border-radius: 5px;
+    box-shadow: none;
+    padding: 0.5rem;
+    background-color: rgb(33, 162, 194);
+    color: whitesmoke;
+    font-weight: bold;
+}
+
 .title {
     font-weight: bold;
     font-size: 18px;
@@ -94,12 +103,21 @@ img {
     font-size: 12px;
 }
 
-
+#hamburger-menu {
+    display: inline-block;
+}
 
 /*Medium screens, more than 768px*/
 @media (min-width: 768px) {
     .profile {
-        margin: 1rem;
+        position: float;
+        float: right;
+        display: block;
+    }
+
+    .profile i {
+        display: inline-block;
+        //help
     }
 
     .navBar {
