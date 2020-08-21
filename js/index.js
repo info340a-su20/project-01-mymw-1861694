@@ -4,16 +4,24 @@ const bookList = {reading:[ {
     pagesRead: 10,
     pagesTotal: 146,
     coverImg: "./img/littleprince.jpg",
-    read: 0,
-    complete: false,
-    reread: false
+    "read": 0,
+    "complete": false
+},
+{
+    bookTitle: "Liar",
+    pagesRead: 0,
+    pagesTotal: 146,
+    "coverImg": "./img/hungrycaterpillar.jpg",
+    "read": 1,
+    "complete": true
 } ], 
 past: [{
     bookTitle: "Liar",
     pagesRead: 10,
     pagesTotal: 146,
-    coverImg: "./img/hungrycaterpillar.jpg",
-    read: 1
+    "coverImg": "./img/hungrycaterpillar.jpg",
+    "read": 1,
+    "complete": true
 }],
 "history": [{
     "Date": "21 August 2020",
@@ -24,10 +32,12 @@ past: [{
 }]
 }
 
-let bookList = fetch("./data.JSON", {mode: "no-cors"})
-.then(function(response) {
-  return response.json();  
-}) //NEED TO FIX THIS AND DELETE
+//let bookList = fetch("./data.JSON", {mode: "no-cors"})
+//.then(function(response) {
+//  return response.json();  
+//}) 
+
+//NEED TO FIX THIS AND DELETE
 
 //Create a new book from the info given by the user
 function renderBook(singleBook) {
@@ -99,8 +109,16 @@ function renderAllBooks(books) {
     currentBooks.innerHTML = "";
     for (let i = 0; i < books.reading.length; i++) {
         let thisBook = books.reading[i];
-        if (thisBook.complete) {
+        if (thisBook.complete && thisBook.read == 0) {
             books.past.push(thisBook);
+        } else if (thisBook.complete) {
+           // for (let j = 0; j < books.past.length; j++) {
+          //      if (thisBook.bookTitle == books.past[j].bookTitle) {
+            //        books.past[j].complete = true;
+              //      renderAllPastBooks(books);
+                //}
+            //}
+            console.log("still complete");
         } else {
             currentBooks.appendChild(renderBook(thisBook));
         }
@@ -132,6 +150,7 @@ function renderPastBook(singleBook) {
     reread.addEventListener('click', function(pages) {
         pages.preventDefault();
         singleBook.complete = false;
+        console.log(singleBook);
         fetchAllBooks();
     })
     section.appendChild(reread);
@@ -143,7 +162,18 @@ function renderAllPastBooks(books) {
     let pastBooks = document.querySelector('#pastBooks');
     pastBooks.innerHTML = "";
     for (let i = 0; i < books.past.length; i++) {
-        pastBooks.appendChild(renderPastBook(books.past[i]));
+        let thisBook = books.past[i];
+        if (thisBook.complete == false) {
+            for (let j = 0; j < books.reading.length; j++) {
+                if (thisBook.bookTitle == books.reading[j].bookTitle) {
+                    books.reading[j].complete = false;
+                    renderAllBooks(books);
+                }
+            }
+            
+        } else {
+            pastBooks.appendChild(renderPastBook(thisBook));
+        }
     }
 }
 
