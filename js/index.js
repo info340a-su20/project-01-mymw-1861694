@@ -4,7 +4,9 @@ const bookList = {reading:[ {
     pagesRead: 10,
     pagesTotal: 146,
     coverImg: "./img/littleprince.jpg",
-    read: 0
+    read: 0,
+    complete: false,
+    reread: false
 } ], 
 past: [{
     bookTitle: "Liar",
@@ -21,17 +23,11 @@ past: [{
     "Re-read": false
 }]
 }
-//let bookList = fetch("./data.JSON")
-//.then(function(response) {
-//  return response.json();  
-//})
 
-//let addUser = document.querySelector('');
-//addUser.addEventListener('submit', function(newUser) {
- //   newUser.preventDefault();
-    //Create new page
-    //Add user's name
-//})
+let bookList = fetch("./data.JSON", {mode: "no-cors"})
+.then(function(response) {
+  return response.json();  
+}) //NEED TO FIX THIS AND DELETE
 
 //Create a new book from the info given by the user
 function renderBook(singleBook) {
@@ -62,7 +58,11 @@ function renderBook(singleBook) {
     submitPages.addEventListener('click', function(pages) {
         pages.preventDefault();
         singleBook.pagesRead = singleBook.pagesRead + Number(readPages.value);
-        console.log(singleBook.pagesRead);
+        if (singleBook.pagesRead == singleBook.pagesTotal) {
+            singleBook.complete = true;
+            singleBook.read++;
+            singleBook.pagesRead = 0;
+        }
         fetchAllBooks();
     });
     section.appendChild(submitPages);
@@ -70,11 +70,25 @@ function renderBook(singleBook) {
     let complete = document.createElement('button');
     complete.setAttribute('aria-label', 'Complete ' + singleBook.bookTitle);
     complete.textContent = "Complete";
+    complete.addEventListener('click', function(pages) {
+        pages.preventDefault();
+        singleBook.complete = true;
+        singleBook.read++;
+        singleBook.pagesRead = 0;
+        fetchAllBooks();
+    })
     section.appendChild(complete);
 
     let deleteBtn = document.createElement('button');
     deleteBtn.setAttribute('aria-label', 'Delete ' + singleBook.bookTitle);
     deleteBtn.textContent = "Delete";
+    deleteBtn.addEventListener('click', function(pages) {
+        pages.preventDefault();
+        //put all info about book into history saying it was deleted (in case mistake)
+        singleBook.innerHTML = "";
+        complete.onplaying("pls delete me");
+        fetchAllBooks();
+    })
     section.appendChild(deleteBtn);
     return section;
 }
@@ -84,7 +98,12 @@ function renderAllBooks(books) {
     let currentBooks = document.querySelector('#currentBooks');
     currentBooks.innerHTML = "";
     for (let i = 0; i < books.reading.length; i++) {
-        currentBooks.appendChild(renderBook(books.reading[i]));
+        let thisBook = books.reading[i];
+        if (thisBook.complete) {
+            books.past.push(thisBook);
+        } else {
+            currentBooks.appendChild(renderBook(thisBook));
+        }
     }
 }
 
@@ -110,6 +129,11 @@ function renderPastBook(singleBook) {
     let reread = document.createElement('button');
     reread.setAttribute('aria-label', 'Re-read ' + singleBook.bookTitle);
     reread.textContent = "Re-read";
+    reread.addEventListener('click', function(pages) {
+        pages.preventDefault();
+        singleBook.complete = false;
+        fetchAllBooks();
+    })
     section.appendChild(reread);
     return section;
 }
@@ -117,13 +141,16 @@ function renderPastBook(singleBook) {
 //Add books to list of past books
 function renderAllPastBooks(books) {
     let pastBooks = document.querySelector('#pastBooks');
+    pastBooks.innerHTML = "";
     for (let i = 0; i < books.past.length; i++) {
         pastBooks.appendChild(renderPastBook(books.past[i]));
     }
 }
 
 //Re-read a book
-
+// complete is false
+// re-read is true until added to now reading and complete is false
+//changed back to false
 
 
     //goes elsewhere
@@ -133,6 +160,8 @@ function renderAllPastBooks(books) {
     //Move all info to respective places
 //})
 //}
+
+//function to push history everytime something happens
 
 //Execute all above functions
 function fetchAllBooks() {
