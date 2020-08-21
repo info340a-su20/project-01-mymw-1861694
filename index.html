@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">  
-        <title>Lectio Alex</title>
+        <title>Lectio</title>
         <link rel="stylesheet" href="css/main.css">
         
         <!--Icons-->
@@ -15,20 +15,20 @@
             <ul>
                 <!--Add in hyperlinks to the other pages-->
                 <div class="navBar">
-                    <li class="alex"><a href="alex.html">Alex</a></li>
+                    <li><a href="index.html">User 1</a></li>
                     <li><a href="faq.html">FAQ</a></li>
                     <li><i class="fas fa-user-plus" aria-label="Add new child"></i></li>
                 </div>
             </ul>
             <div class="profile">
                 <!--<button><i  aria-label="Search" class="fas fa-search fa-flip-horizontal"></i></button>-->
-                <p>Amy's Profile</p>
+                <p>Profile</p>
                 <i aria-label="Profile" class="far fa-user-circle"></i>
             </div>
         </nav>
         <div class="heading">
             <header>
-                <h1>Alex's Reading Progress</h1>
+                <h1>Your Reading Progress</h1>
             </header>
         </div>
         <div class="cards">
@@ -43,7 +43,7 @@
 
                             <!--Submitting a file https://www.w3schools.com/howto/howto_html_file_upload_button.asp-->
                             <form action="/action_page.php">
-                                <input type="file" id="book" name="filename">
+                                <input type="image" id="book" name="filename">
                               </form>
                             <button id="addBook">Add Book</button>
                         </div>
@@ -61,44 +61,37 @@
                             <!--Error handling, only less than number of times read-->
                             <!--Submitting a file https://www.w3schools.com/howto/howto_html_file_upload_button.asp-->
                             <form action="/action_page.php">
-                                <input type="file" id="book" name="filename">
+                                <input type="image" id="book" name="filename">
                               </form>
                             <button id="addBook">Add Book</button>
                         </div>
                     </div>
-                    <div class="oneOption" id="currentBooks">
+                    <div class="oneOption">
                         <h2>Current Books</h2>
                         <p>Here are the books you are currently reading. Update your progress!</p>
-                        <section class="current"> 
-                            <img src="img/littleprince.jpg">
-                            <h3>Little Prince</h3>
-                            <p>40 pages read of 128</p>
-                            <button>Read 10 pages</button>
-                            <button>Complete</button>
-                        </section>
+                        <div id="currentBooks">
+                        </div>
                     </div>
-                    <div class="oneOption" id="pastBooks">
+                    <div class="oneOption">
                         <h2>Previous Books</h2>
                         <p>Here are books you have read. Re-read them or edit their details.</p>
-                        <section class="previous">
-                            <img src="img/hungrycaterpillar.jpg">
-                            <h3>The Very Hungry Caterpillar</h3>
-                            <p>22 pages total</p>
-                            <p>Book has been read 5 times</p>
-                            <button>Re-read</button>
-                            <button>Edit</button>
-                        </section>
+                        <div id="pastBooks">
+                            <section class="previous">
+                            </section>
+                        </div>
                     </div>
                     <div class="oneOption">
                         <h2>History</h2>
                         <p>See your previous plants and your previous progress here!</p>
+                        <div id="history">
+                        </div>
                     </div>
                 </div>
             </main>
         </div>
         <div class="ending">
             <footer>
-
+                <p>Created by Michelle Wong Yu Miin</p>
             </footer>
         </div>
 

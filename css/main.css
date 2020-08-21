@@ -7,6 +7,9 @@ body {
     flex-direction: column;
     font-family: "Roboto", sans-serif;
     background-image: url('../img/plant.jpg');
+
+    /*Taken from https://www.w3schools.com/cssref/css3_pr_background-size.asp*/
+    background-repeat: no-repeat;
     margin: 5rem;
 }
 
@@ -29,6 +32,7 @@ button {
     background-color: rgb(33, 162, 194);
     color: whitesmoke;
     font-weight: bold;
+    margin: 0.1rem;
 }
 
 section {
@@ -111,17 +115,16 @@ img {
     display: inline-block;
 }
 
+footer {
+    color: whitesmoke;
+}
+
 /*Medium screens, more than 768px*/
 @media (min-width: 768px) {
     .profile {
         position: float;
         float: right;
         display: block;
-    }
-
-    .profile i {
-        display: inline-block;
-        //help
     }
 
     .navBar {
@@ -134,7 +137,7 @@ img {
         padding: .8rem;
     }
     
-    nav a:hover, nav a:active, nav a:focus, .alex, .faq {
+    nav a:hover, nav a:active, nav a:focus {
         border-bottom: .3rem solid rgb(20, 85, 122);
         color: rgb(20, 85, 122);
     }
