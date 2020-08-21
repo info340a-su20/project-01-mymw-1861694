@@ -31,6 +31,10 @@ button {
     font-weight: bold;
 }
 
+section {
+    margin: 1rem;
+}
+
 .title {
     font-weight: bold;
     font-size: 18px;

@@ -4,7 +4,7 @@
         <meta charset="UTF-8">  
         <title>Lectio Alex</title>
         <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+        
         <!--Icons-->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     </head>
@@ -17,7 +17,7 @@
                 <div class="navBar">
                     <li class="alex"><a href="alex.html">Alex</a></li>
                     <li><a href="faq.html">FAQ</a></li>
-                    <li><i aria-label="Add new child" class="fas fa-user-plus"></i></li>
+                    <li><i class="fas fa-user-plus" aria-label="Add new child"></i></li>
                 </div>
             </ul>
             <div class="profile">
@@ -39,8 +39,7 @@
                         <p>Put in details about a new book you are reading:</p>
                         <div class="new">
                             <input type="text" placeholder="Title of Book">
-                            <input type="text" placeholder="Author">
-                            <input type="text" placeholder="Number of Pages">
+                            <input type="text" placeholder="Total Number of Pages">
 
                             <!--Submitting a file https://www.w3schools.com/howto/howto_html_file_upload_button.asp-->
                             <form action="/action_page.php">
@@ -48,26 +47,44 @@
                               </form>
                             <button id="addBook">Add Book</button>
                         </div>
+                        <h2>Edit a Book</h2>
+                        <button><i aria-label="Edit book entry" class="far fa-edit"></i></button>
+                        <p>Edit an existing book</p>
+                        <div class="new">
+                            
+                            <!--Put a dropdown of current books here-->
+                            <input type="text" placeholder="Title of Book">
+                            <input type="text" placeholder="Number of Pages Read">
+                            <!--Error handling, only less than current pages read-->
+                            <input type="text" placeholder="Total Number of Pages">
+                            <input type="text" placeholder="Number of Times Read">
+                            <!--Error handling, only less than number of times read-->
+                            <!--Submitting a file https://www.w3schools.com/howto/howto_html_file_upload_button.asp-->
+                            <form action="/action_page.php">
+                                <input type="file" id="book" name="filename">
+                              </form>
+                            <button id="addBook">Add Book</button>
+                        </div>
                     </div>
-                    <div class="oneOption">
+                    <div class="oneOption" id="currentBooks">
                         <h2>Current Books</h2>
                         <p>Here are the books you are currently reading. Update your progress!</p>
                         <section class="current"> 
                             <img src="img/littleprince.jpg">
                             <h3>Little Prince</h3>
-                            <button><i aria-label="Edit book entry" class="far fa-edit"></i></button>
-                            <p>40/128</p>
+                            <p>40 pages read of 128</p>
                             <button>Read 10 pages</button>
                             <button>Complete</button>
                         </section>
                     </div>
-                    <div class="oneOption">
+                    <div class="oneOption" id="pastBooks">
                         <h2>Previous Books</h2>
                         <p>Here are books you have read. Re-read them or edit their details.</p>
                         <section class="previous">
                             <img src="img/hungrycaterpillar.jpg">
                             <h3>The Very Hungry Caterpillar</h3>
-                            <p>22</p>
+                            <p>22 pages total</p>
+                            <p>Book has been read 5 times</p>
                             <button>Re-read</button>
                             <button>Edit</button>
                         </section>
@@ -84,5 +101,10 @@
 
             </footer>
         </div>
+
+        <!--Script files-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.2.8/es6-promise.min.js"></script>
+        <script src="js/index.js"></script>
     </body>
 </html>
