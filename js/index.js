@@ -1,43 +1,60 @@
 'use strict';
-const bookList = {reading:[ {
-    bookTitle: "Lord of the Rings",
-    pagesRead: 10,
-    pagesTotal: 146,
-    coverImg: "./img/littleprince.jpg",
-    "read": 0,
-    "complete": false
-},
-{
-    bookTitle: "Liar",
-    pagesRead: 0,
-    pagesTotal: 146,
-    "coverImg": "./img/hungrycaterpillar.jpg",
-    "read": 1,
-    "complete": true
-} ], 
-past: [{
-    bookTitle: "Liar",
-    pagesRead: 10,
-    pagesTotal: 146,
-    "coverImg": "./img/hungrycaterpillar.jpg",
-    "read": 1,
-    "complete": true
-}],
-"history": [{
-    "Date": "21 August 2020",
-    "Book": "Hungry Caterpillar",
-    "Number of Pages Read": 9,
-    "Completed": false,
-    "Re-read": false
-}]
+
+let booklist = {
+	"reading": [{
+			"bookTitle": "Lord of the Rings",
+			"pagesRead": 10,
+			"pagesTotal": 146,
+			"coverImg": "./img/littleprince.jpg",
+			"read": 0,
+			"complete": false
+		},
+		{
+			"bookTitle": "Liar",
+			"pagesRead": 0,
+			"pagesTotal": 146,
+			"coverImg": "./img/hungrycaterpillar.jpg",
+			"read": 1,
+			"complete": true
+		}
+	],
+	"past": [{
+		"bookTitle": "Liar",
+		"pagesRead": 10,
+		"pagesTotal": 146,
+		"coverImg": "./img/hungrycaterpillar.jpg",
+		"read": 1,
+		"complete": true
+	}],
+	"history": [{
+		"Date": "21 August 2020",
+		"Book": "Hungry Caterpillar",
+		"Number of Pages Read": 9,
+		"Completed": false,
+		"Re-read": false
+	}]
 }
-
-//let bookList = fetch("./data.JSON", {mode: "no-cors"})
-//.then(function(response) {
-//  return response.json();  
-//}) 
-
 //NEED TO FIX THIS AND DELETE
+
+//Add a new book
+let addNewBook = document.querySelector('#addBook');
+addNewBook.addEventListener('click', function(response) {
+    response.preventDefault();
+    let newTitle = document.querySelector('#newBookTitle');
+    let newPages = document.querySelector('#newBookPagesRead');
+    let newImg = document.querySelector('#bookImg');
+    let newObj = {
+        "bookTitle": newTitle.value,
+		"pagesRead": 0,
+		"pagesTotal": newPages.value,
+		"coverImg": newImg.value,
+		"read": 0,
+		"complete": false
+    }
+    console.log(newObj);
+    
+    //JSON.stringify(newObj);
+})
 
 //Create a new book from the info given by the user
 function renderBook(singleBook) {
@@ -72,7 +89,9 @@ function renderBook(singleBook) {
             singleBook.complete = true;
             singleBook.read++;
             singleBook.pagesRead = 0;
+            console.log(singleBook.pagesRead);
         }
+        console.log(singleBook.pagesRead);
         fetchAllBooks();
     });
     section.appendChild(submitPages);
@@ -109,19 +128,20 @@ function renderAllBooks(books) {
     currentBooks.innerHTML = "";
     for (let i = 0; i < books.reading.length; i++) {
         let thisBook = books.reading[i];
-        if (thisBook.complete && thisBook.read == 0) {
-            books.past.push(thisBook);
-        } else if (thisBook.complete) {
+       // if (thisBook.complete ) {
+       //     books.past.push(thisBook);
+      //  } else if (thisBook.complete&& thisBook.read == 0) {
            // for (let j = 0; j < books.past.length; j++) {
           //      if (thisBook.bookTitle == books.past[j].bookTitle) {
             //        books.past[j].complete = true;
               //      renderAllPastBooks(books);
                 //}
             //}
-            console.log("still complete");
-        } else {
+            //something wrong here
+         //   console.log("still complete");
+      //  } else {
             currentBooks.appendChild(renderBook(thisBook));
-        }
+       // }
     }
 }
 
@@ -194,12 +214,20 @@ function renderAllPastBooks(books) {
 //function to push history everytime something happens
 
 //Execute all above functions
-function fetchAllBooks() {
-    //return fetch
-    renderAllBooks(bookList);
-    renderAllPastBooks(bookList);   
-
+function booked() {
+    return fetch("./booklist.json", {mode: "no-cors"})
+    .then(function(response) {
+        return response.json();  
+    }).then(function(newResponse) {
+        return fetchAllBooks(newResponse);
+    })
 }
+
+function fetchAllBooks() {
+    renderAllBooks(booklist);
+    renderAllPastBooks(booklist);
+}
+
 fetchAllBooks();
 
 //.catch(function(error) {

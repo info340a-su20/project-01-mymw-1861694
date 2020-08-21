@@ -1,0 +1,34 @@
+{
+	"reading": [{
+			"bookTitle": "Lord of the Rings",
+			"pagesRead": 10,
+			"pagesTotal": 146,
+			"coverImg": "./img/littleprince.jpg",
+			"read": 0,
+			"complete": false
+		},
+		{
+			"bookTitle": "Liar",
+			"pagesRead": 0,
+			"pagesTotal": 146,
+			"coverImg": "./img/hungrycaterpillar.jpg",
+			"read": 1,
+			"complete": true
+		}
+	],
+	"past": [{
+		"bookTitle": "Liar",
+		"pagesRead": 10,
+		"pagesTotal": 146,
+		"coverImg": "./img/hungrycaterpillar.jpg",
+		"read": 1,
+		"complete": true
+	}],
+	"history": [{
+		"Date": "21 August 2020",
+		"Book": "Hungry Caterpillar",
+		"Number of Pages Read": 9,
+		"Completed": false,
+		"Re-read": false
+	}]
+}

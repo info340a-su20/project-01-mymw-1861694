@@ -11,15 +11,18 @@
     <body>
         <nav>
             <p class="title"><a href="index.html">Lectio</a></p>
-            <div id="hamburger-menu"><a href="#"><i class="fa fa-bars" aria-label="menu"></i></a></div>
-            <ul>
+            
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <div id="hamburger-menu"><i class="fa fa-bars" aria-label="menu"></i></div>
+                </button>
+            <div class="navBar dropdown-content">
+                <ul>
                 <!--Add in hyperlinks to the other pages-->
-                <div class="navBar">
                     <li><a href="index.html">User 1</a></li>
                     <li><a href="faq.html">FAQ</a></li>
-                    <li><i class="fas fa-user-plus" aria-label="Add new child"></i></li>
-                </div>
-            </ul>
+                </ul>
+            </div>
             <div class="profile">
                 <!--<button><i  aria-label="Search" class="fas fa-search fa-flip-horizontal"></i></button>-->
                 <p>Profile</p>
@@ -38,12 +41,12 @@
                         <h2>Add a Book</h2>
                         <p>Put in details about a new book you are reading:</p>
                         <div class="new">
-                            <input type="text" placeholder="Title of Book">
-                            <input type="text" placeholder="Total Number of Pages">
+                            <input id="newBookTitle" type="text" placeholder="Title of Book">
+                            <input id="newBookPagesRead" type="text" placeholder="Total Number of Pages">
 
                             <!--Submitting a file https://www.w3schools.com/howto/howto_html_file_upload_button.asp-->
                             <form action="/action_page.php">
-                                <input type="image" id="book" name="filename">
+                                <input type="file" id="bookImg" name="filename">
                               </form>
                             <button id="addBook">Add Book</button>
                         </div>
@@ -59,7 +62,8 @@
                             <input type="text" placeholder="Total Number of Pages">
                             <input type="text" placeholder="Number of Times Read">
                             <!--Error handling, only less than number of times read-->
-                            <!--Submitting a file https://www.w3schools.com/howto/howto_html_file_upload_button.asp-->
+                            <!--Submitting a file https://www.w3schools.com/howto/howto_html_file_upload_button.asp
+                            Have not figured out how to have the image saved yet :(-->
                             <form action="/action_page.php">
                                 <input type="image" id="book" name="filename">
                               </form>
