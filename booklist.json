@@ -16,6 +16,15 @@
             "read": 1,
             "new": false,
 			"complete": true
+        },
+        {
+			"bookTitle": "Lord of the Rings",
+			"pagesRead": 200,
+			"pagesTotal": 1460,
+			"coverImg": "./img/lordoftherings.jpg",
+            "read": 0,
+            "new": false,
+			"complete": false
 		}
 	],
 	"past": [{
@@ -28,10 +37,9 @@
         "complete": true
 	}],
 	"history": [{
-		"Date": "21 August 2020",
-		"Book": "Hungry Caterpillar",
-		"Number of Pages Read": 9,
-		"Completed": false,
-		"Re-read": false
+		"date": "Fri July 3 2020 18:59:51 GMT-0700 (Pacific Daylight Time)",
+		"bookTitle": "Hungry Caterpillar",
+		"noPages": 9,
+		"complete": true
 	}]
 }
