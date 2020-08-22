@@ -4,7 +4,8 @@
 			"pagesRead": 10,
 			"pagesTotal": 146,
 			"coverImg": "./img/littleprince.jpg",
-			"read": 0,
+            "read": 0,
+            "new": true,
 			"complete": false
 		},
 		{
@@ -12,17 +13,19 @@
 			"pagesRead": 0,
 			"pagesTotal": 146,
 			"coverImg": "./img/hungrycaterpillar.jpg",
-			"read": 1,
+            "read": 1,
+            "new": false,
 			"complete": true
 		}
 	],
 	"past": [{
-		"bookTitle": "The Very Hungry Caterpillar",
-		"pagesRead": 10,
-		"pagesTotal": 146,
-		"coverImg": "./img/hungrycaterpillar.jpg",
-		"read": 1,
-		"complete": true
+        "bookTitle": "The Very Hungry Caterpillar",
+        "pagesRead": 0,
+        "pagesTotal": 146,
+        "coverImg": "./img/hungrycaterpillar.jpg",
+        "read": 1,
+        "new": false,
+        "complete": true
 	}],
 	"history": [{
 		"Date": "21 August 2020",

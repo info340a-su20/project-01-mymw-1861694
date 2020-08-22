@@ -1,8 +1,5 @@
 'use strict';
 
-
-//NEED TO FIX THIS AND DELETE
-
 //Add a new book
 let addNewBook = document.querySelector('#addBook');
 addNewBook.addEventListener('click', function(response) {
@@ -15,7 +12,8 @@ addNewBook.addEventListener('click', function(response) {
 		"pagesRead": 0,
 		"pagesTotal": newPages.value,
 		"coverImg": "./img/book.jpg",
-		"read": 0,
+        "read": 0,
+        "new": true,
 		"complete": false
     }
     booklist.reading.push(newObj);
@@ -32,6 +30,11 @@ function createRadio(book) {
     let edit = document.querySelector('#edit');
     edit.appendChild(input);
 }
+////////////////
+//function allRadios() {
+   // for ()
+    //booklist.reading.bookTitle
+//}
 
 //Create a new book from the info given by the user
 function renderBook(singleBook) {
@@ -62,7 +65,9 @@ function renderBook(singleBook) {
     submitPages.addEventListener('click', function(pages) {
         pages.preventDefault();
         singleBook.pagesRead = singleBook.pagesRead + Number(readPages.value);
-        if (singleBook.pagesRead == singleBook.pagesTotal) {
+        if (singleBook.pagesRead > singleBook.pagesTotal) {
+            singleBook.pagesRead = singleBook.pagesRead - Number(readPages.value);
+        } else if (singleBook.pagesRead == singleBook.pagesTotal) {
             singleBook.complete = true;
             singleBook.read++;
             singleBook.pagesRead = 0;
@@ -91,8 +96,7 @@ function renderBook(singleBook) {
     deleteBtn.addEventListener('click', function(pages) {
         pages.preventDefault();
         //put all info about book into history saying it was deleted (in case mistake)
-        singleBook.innerHTML = "";
-        complete.onplaying("pls delete me");
+        //splice?
         fetchAllBooks();
     })
     section.appendChild(deleteBtn);
@@ -103,25 +107,22 @@ function renderBook(singleBook) {
 function renderAllBooks(books) {
     let currentBooks = document.querySelector('#currentBooks');
     currentBooks.innerHTML = "";
-    
-    ///////////////////////////////////////////////
-   // array.forEach(function(currentValue, index, arr), thisValue);
     for (let i = 0; i < books.reading.length; i++) {
         let thisBook = books.reading[i];
-       // if (thisBook.complete ) {
-       //     books.past.push(thisBook);
-      //  } else if (thisBook.complete&& thisBook.read == 0) {
-           // for (let j = 0; j < books.past.length; j++) {
-          //      if (thisBook.bookTitle == books.past[j].bookTitle) {
-            //        books.past[j].complete = true;
-              //      renderAllPastBooks(books);
-                //}
-            //}
-            //something wrong here
-         //   console.log("still complete");
-      //  } else {
+       if (thisBook.complete && thisBook.new) {
+           //if record exists in array, becomes added twice :((
+            books.past.push(thisBook);
+            thisBook.new = false;
+       } else if (thisBook.complete) {
+            for (let j = 0; j < books.past.length; j++) {
+                if (thisBook.bookTitle == books.past[j].bookTitle) {
+                    books.past[j].complete = true;
+                    renderAllPastBooks(booklist);
+                }
+            }
+        } else {
             currentBooks.appendChild(renderBook(thisBook));
-       // }
+        }
     }
 }
 
@@ -150,7 +151,6 @@ function renderPastBook(singleBook) {
     reread.addEventListener('click', function(pages) {
         pages.preventDefault();
         singleBook.complete = false;
-        console.log(singleBook);
         fetchAllBooks();
     })
     section.appendChild(reread);
@@ -161,20 +161,21 @@ function renderPastBook(singleBook) {
 function renderAllPastBooks(books) {
     let pastBooks = document.querySelector('#pastBooks');
     pastBooks.innerHTML = "";
-    for (let i = 0; i < books.past.length; i++) {
-        let thisBook = books.past[i];
-        if (thisBook.complete == false) {
-            for (let j = 0; j < books.reading.length; j++) {
-                if (thisBook.bookTitle == books.reading[j].bookTitle) {
-                    books.reading[j].complete = false;
-                    renderAllBooks(books);
-                }
+    if (books.past.length > 0) {
+        for (let i = 0; i < books.past.length; i++) {
+            let thisBook = books.past[i];
+            if (!thisBook.complete) {
+                for (let j = 0; j < books.reading.length; j++) {
+                    if (thisBook.bookTitle == books.reading[j].bookTitle) {
+                        books.reading[j].complete = false;
+                        renderAllBooks(booklist);
+                    }
+                } 
+            } else {
+                pastBooks.appendChild(renderPastBook(thisBook));
             }
-            
-        } else {
-            pastBooks.appendChild(renderPastBook(thisBook));
         }
-    }
+    }    
 }
 
 //Re-read a book
