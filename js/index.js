@@ -1,5 +1,39 @@
 'use strict';
 
+// Hide all cards
+let listAll = document.querySelector('#listAll');
+listAll.addEventListener('click', function() {
+    let cards = document.querySelector('.cards');
+    cards.classList.add('hide');
+    //make new layout
+    let div = document.createElement('div');
+    div.classList.add('viewChange');
+    for (let i = 0; i < booklist.reading.length; i++) {
+        let thisBook = booklist.reading[i];
+        div.appendChild(renderBook(thisBook));
+    }
+    for (let i = 0; i < booklist.past.length; i++) {
+        let thisBook = booklist.past[i];
+        div.appendChild(renderPastBook(thisBook));
+    }
+    let body = document.querySelector('body');
+    body.append(div);
+  
+    //new button to change it all back
+    let button = document.createElement('button');
+    button.textContent = "Normal View";
+    button.classList.add('exception');
+    div.append(button);
+
+})
+
+let button = document.querySelector('button');
+button.addEventListener('click', function() {
+    //remove new layout
+    fetchAll();
+})
+
+
 //Add a new book
 let addNewBook = document.querySelector('#addBook');
 addNewBook.addEventListener('click', function(response) {

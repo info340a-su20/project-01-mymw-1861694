@@ -2,6 +2,10 @@
     box-sizing: border-box; 
 }
 
+.hide {
+    display: none;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -37,6 +41,20 @@ button {
 
 section {
     margin: 1rem;
+}
+
+.viewChange {
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+}
+
+.viewChange button, .viewChange input, .viewChange footer {
+    display: none;
+}
+
+.viewChange .exception {
+    display: inline-block;
 }
 
 .title {
