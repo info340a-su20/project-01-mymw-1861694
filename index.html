@@ -11,12 +11,7 @@
     <body>
         <nav>
             <p class="title"><a href="index.html">Lectio</a></p>
-            
-            <div class="dropdown">
-                <button class="dropbtn">
-                    <div id="hamburger-menu"><i class="fa fa-bars" aria-label="menu"></i></div>
-                </button>
-            <div class="navBar dropdown-content">
+            <div class="navBar">
                 <ul>
                 <!--Add in hyperlinks to the other pages-->
                     <li><a href="index.html">User 1</a></li>
@@ -28,6 +23,20 @@
                 <p>Profile</p>
                 <i aria-label="Profile" class="far fa-user-circle"></i>
             </div>
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <div id="hamburger-menu"><i class="fa fa-bars" aria-label="menu"></i></div>
+                </button>
+            <div class="dropdown-content">
+                <ul>
+                <!--Add in hyperlinks to the other pages-->
+                    <li><i aria-label="Profile" class="far fa-user-circle"></i><p>Profile</p></li>
+                    <li><a href="index.html">User 1</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            </div>
+
         </nav>
         <div class="heading">
             <header>
@@ -53,7 +62,7 @@
                         <h2>Edit a Book</h2>
                         <button><i aria-label="Edit book entry" class="far fa-edit"></i></button>
                         <p>Edit an existing book</p>
-                        <div class="new">
+                        <div class="new" id="edit">
                             
                             <!--Put a dropdown of current books here-->
                             <input type="text" placeholder="Title of Book">

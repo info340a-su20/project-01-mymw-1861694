@@ -157,6 +157,10 @@ img {
 
 /*Medium screens, more than 768px*/
 @media (min-width: 768px) {
+    .dropdown, .dropbtn {
+        display: none;
+    }
+
     .profile {
         position: float;
         float: right;
@@ -164,7 +168,7 @@ img {
     }
 
     .navBar {
-        display: block;
+        display: inline-block;
     }
     
     nav a:hover, nav a:active, nav a:focus {

@@ -1,39 +1,6 @@
 'use strict';
 
-let booklist = {
-	"reading": [{
-			"bookTitle": "Lord of the Rings",
-			"pagesRead": 10,
-			"pagesTotal": 146,
-			"coverImg": "./img/littleprince.jpg",
-			"read": 0,
-			"complete": false
-		},
-		{
-			"bookTitle": "Liar",
-			"pagesRead": 0,
-			"pagesTotal": 146,
-			"coverImg": "./img/hungrycaterpillar.jpg",
-			"read": 1,
-			"complete": true
-		}
-	],
-	"past": [{
-		"bookTitle": "Liar",
-		"pagesRead": 10,
-		"pagesTotal": 146,
-		"coverImg": "./img/hungrycaterpillar.jpg",
-		"read": 1,
-		"complete": true
-	}],
-	"history": [{
-		"Date": "21 August 2020",
-		"Book": "Hungry Caterpillar",
-		"Number of Pages Read": 9,
-		"Completed": false,
-		"Re-read": false
-	}]
-}
+
 //NEED TO FIX THIS AND DELETE
 
 //Add a new book
@@ -47,14 +14,24 @@ addNewBook.addEventListener('click', function(response) {
         "bookTitle": newTitle.value,
 		"pagesRead": 0,
 		"pagesTotal": newPages.value,
-		"coverImg": newImg.value,
+		"coverImg": "./img/book.jpg",
 		"read": 0,
 		"complete": false
     }
-    console.log(newObj);
-    
-    //JSON.stringify(newObj);
+    booklist.reading.push(newObj);
+    fetchAllBooks();
 })
+
+//Edit a book
+function createRadio(book) {
+    let input = document.createElement('input');
+    input.type = "radio";
+    input.id = book.bookTitle.value;
+    input.name = bookTitles;
+    input.value = book.bookTitle.value;
+    let edit = document.querySelector('#edit');
+    edit.appendChild(input);
+}
 
 //Create a new book from the info given by the user
 function renderBook(singleBook) {
@@ -126,6 +103,9 @@ function renderBook(singleBook) {
 function renderAllBooks(books) {
     let currentBooks = document.querySelector('#currentBooks');
     currentBooks.innerHTML = "";
+    
+    ///////////////////////////////////////////////
+   // array.forEach(function(currentValue, index, arr), thisValue);
     for (let i = 0; i < books.reading.length; i++) {
         let thisBook = books.reading[i];
        // if (thisBook.complete ) {
@@ -214,12 +194,14 @@ function renderAllPastBooks(books) {
 //function to push history everytime something happens
 
 //Execute all above functions
-function booked() {
+let booklist = "";
+function fetchAll() {
     return fetch("./booklist.json", {mode: "no-cors"})
     .then(function(response) {
         return response.json();  
     }).then(function(newResponse) {
-        return fetchAllBooks(newResponse);
+        booklist = newResponse;
+        return fetchAllBooks();
     })
 }
 
@@ -228,7 +210,7 @@ function fetchAllBooks() {
     renderAllPastBooks(booklist);
 }
 
-fetchAllBooks();
+fetchAll();
 
 //.catch(function(error) {
 //  renderError(error);

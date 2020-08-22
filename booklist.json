@@ -1,6 +1,6 @@
 {
 	"reading": [{
-			"bookTitle": "Lord of the Rings",
+			"bookTitle": "The Little Prince",
 			"pagesRead": 10,
 			"pagesTotal": 146,
 			"coverImg": "./img/littleprince.jpg",
@@ -8,7 +8,7 @@
 			"complete": false
 		},
 		{
-			"bookTitle": "Liar",
+			"bookTitle": "The Very Hungry Caterpillar",
 			"pagesRead": 0,
 			"pagesTotal": 146,
 			"coverImg": "./img/hungrycaterpillar.jpg",
@@ -17,7 +17,7 @@
 		}
 	],
 	"past": [{
-		"bookTitle": "Liar",
+		"bookTitle": "The Very Hungry Caterpillar",
 		"pagesRead": 10,
 		"pagesTotal": 146,
 		"coverImg": "./img/hungrycaterpillar.jpg",
