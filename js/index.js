@@ -17,21 +17,25 @@ listAll.addEventListener('click', function() {
         div.appendChild(renderPastBook(thisBook));
     }
     let body = document.querySelector('body');
-    body.append(div);
-  
+    div.id = "remove";
+      
     //new button to change it all back
     let button = document.createElement('button');
     button.textContent = "Normal View";
     button.classList.add('exception');
     div.append(button);
-
+    body.append(div);
+    button.addEventListener('click', function() {
+        //remove new layout
+        //body.remove(div);
+        //console.log("What");
+        //cards.classList.remove('hide');
+        //console.log(cards);
+        
+    })
 })
 
-let button = document.querySelector('button');
-button.addEventListener('click', function() {
-    //remove new layout
-    fetchAll();
-})
+
 
 
 //Add a new book
